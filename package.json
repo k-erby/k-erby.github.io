@@ -1,0 +1,16 @@
+{
+  "name": "k-erby.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^5.4.21"
+  }
+}
