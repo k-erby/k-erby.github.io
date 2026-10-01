@@ -1,6 +1,7 @@
 import { $, el } from "../lib/dom";
 import { showDialog } from "./dialog";
 import { rainCatsAndDogs } from "./catsAndDogs";
+import { saltSplash } from "./spirits";
 import { listWindows, openWindow } from "./windows";
 
 const GUESTBOOK_URL = "https://github.com/k-erby/k-erby.github.io/issues/new?title=Guestbook+entry&body=Kool+site!!!";
@@ -46,6 +47,7 @@ function initStartMenu(): void {
   items.append(
     el("li", { className: "separator" }),
     action("🌧️", "Make It Rain", rainCatsAndDogs),
+    action("🧂", "Salt Splash!!", saltSplash),
     el(
       "li",
       {},
@@ -74,7 +76,7 @@ async function shutDown(): Promise<void> {
   const answer = await showDialog({
     title: "Shut Down Windows",
     icon: "🖥️",
-    message: "Are you sure you want to shut down Kaitlin's Kool HomePage?",
+    message: "Are you sure you want to close the office for the day?",
     buttons: ["Yes", "No"],
   });
   if (answer !== "Yes") return;

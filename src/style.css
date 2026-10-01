@@ -641,3 +641,112 @@ kbd {
   .nav-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 0 8px; }
   .tray [aria-hidden] { display: none; }
 }
+
+/* ================= Bugs & Such Consultation Office ================= */
+
+.proprietor {
+  text-align: center;
+  margin: 0 16px 28px;
+  font-size: 15px;
+  color: #ff9999;
+}
+.proprietor small { color: var(--silver); }
+
+/* ---------- price list ---------- */
+table.prices {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: separate;
+  border-spacing: 3px;
+  border: 3px outset var(--silver);
+  background: var(--silver);
+  font-size: 17px;
+}
+table.prices th, table.prices td {
+  padding: 8px 10px;
+  border: 2px inset var(--silver);
+  vertical-align: top;
+}
+table.prices th { background: #800080; color: var(--yellow); text-align: left; font-family: "Arial Black", Impact, sans-serif; }
+table.prices td { background: #fff; }
+table.prices tr:nth-child(odd) td { background: #ffeef6; }
+table.prices td.price { white-space: nowrap; color: #cc0000; font-weight: bold; text-align: right; }
+.book-row { margin: 24px 0 16px; }
+.book-button {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 16px;
+  animation: pulse 0.8s steps(2) infinite alternate;
+}
+@keyframes pulse { to { background: var(--yellow); } }
+.fine-print { font-size: 13px; color: #666; font-style: italic; }
+
+/* ---------- psychic meter ---------- */
+.psychic-meter {
+  height: 18px;
+  margin: 4px auto;
+  padding: 2px;
+  background: #000;
+  border: 3px inset #888;
+}
+#psychic-fill { height: 100%; width: 0; background: var(--lime); }
+.psychic-label { font: bold 18px "Courier New", Courier, monospace; color: var(--lime); }
+
+.salt-button { width: 100%; font-size: 15px; }
+
+/* ???% */
+body.overload table.layout,
+body.overload #starfield {
+  animation: overload-shake 0.1s steps(2) infinite, overload-hue 0.6s steps(6) infinite;
+}
+@keyframes overload-shake {
+  0% { translate: -6px 3px; } 50% { translate: 6px -3px; }
+}
+@keyframes overload-hue {
+  to { filter: hue-rotate(360deg) saturate(3); }
+}
+
+/* ---------- evil spirits ---------- */
+.ghost {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 950;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 40px;
+  line-height: 48px;
+  cursor: crosshair;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px #99ffff);
+}
+.ghost:hover { background: none; opacity: 1; }
+.ghost-body { display: inline-block; animation: ghost-bob 0.8s steps(2) infinite alternate; }
+@keyframes ghost-bob { to { translate: 0 -6px; } }
+.ghost.poof { animation: poof 0.7s steps(5) forwards; }
+@keyframes poof {
+  to { opacity: 0; scale: 2.5; }
+}
+
+.salt {
+  position: fixed;
+  z-index: 1550;
+  pointer-events: none;
+  background: #fff;
+  box-shadow: 0 0 2px #99ffff;
+}
+
+.b8 { background: #000; color: #ff66cc; }
+.b9 { background: #cccccc; color: #660000; font-family: "Times New Roman", serif; font-size: 11px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .book-button, .ghost-body { animation: none; }
+}
+
+@media (max-width: 700px) {
+  table.prices { font-size: 14px; }
+  table.prices th, table.prices td { padding: 5px; }
+}
